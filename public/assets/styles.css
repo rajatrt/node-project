@@ -1,0 +1,8 @@
+body{
+    background-color: pink;
+    padding: 30px;
+    text-align: center;
+    color: whitesmoke;
+    border: 2px solid blue;
+    text-transform: capitalize;
+}

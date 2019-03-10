@@ -1,0 +1,25 @@
+{
+  "name": "node-project",
+  "version": "1.0.0",
+  "description": "a demo node project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rajatrt/node-project.git"
+  },
+  "author": "rajat",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rajatrt/node-project/issues"
+  },
+  "homepage": "https://github.com/rajatrt/node-project#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4"
+  }
+}
