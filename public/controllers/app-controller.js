@@ -1,6 +1,14 @@
-var data = [{item:'Milk'},{item:'Butter'},{item:'Apple'}]
-
 var bodyParser = require('body-parser')
+var mongoose = require('mongoose');
+/**
+ * Coonect to  mongodb server 
+ * currently using MLAB services for database.
+ */
+mongoose.connect('mongodb://test:test1234@ds163825.mlab.com:63825/todo-list', { useNewUrlParser: true })
+var todoSchema = new mongoose.Schema({
+    item :String
+})
+var Todo = mongoose.model('Todo',todoSchema);
 
 module.exports = function(app){
 
@@ -8,20 +16,22 @@ module.exports = function(app){
     app.use(bodyParser.json())
 
     app.get('/todo',(req,res) => {
-        res.render('todo.ejs',{data:data});
+        Todo.find({}, (err,data) => {
+            if(err) throw err;
+            res.render('todo.ejs',{data:data});
+        })
     })
     app.post('/todo',urlencodedParser,(req,res) => {
-        data.push(req.body);
-        res.json(data);
+        var newTodo = Todo(req.body).save(function(err,data) {
+            if(err) throw err;
+            res.json(data);
+        })
     })
     app.delete('/todo/:item',(req,res) => {
-        let item = req.params.item;
-        data = data.filter((op) => {
-            if(op.item == item){
-                return false;
-            }
-            return true;
+        let val = req.params.item;
+        Todo.find({item:val}).remove(function(err,data){
+            if(err) throw err;
+            res.json(data);
         })
-        res.json(data);
     })
 }

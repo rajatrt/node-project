@@ -5,10 +5,8 @@
     </head>
     <body>
         <div id="todo-table">
-            <!-- <form action="/todo" onSubmit="formSubmit()" method="post"> -->
-                <input type="text" name="item" placeholder="Add new item...." required id="input-box">
-                <button type="submit" id="add-button" onclick="formSubmit()">Add item</button>
-            <!-- </form> -->
+            <input type="text" name="item" placeholder="Add new item...." required id="input-box">
+            <button type="submit" id="add-button" onclick="formSubmit()">Add item</button>
             <ul>
                 <% for(var i=0; i<data.length;i++) { %>
                 <li onclick="deleteItem(event)" id='list-item'> <%= data[i].item %>
