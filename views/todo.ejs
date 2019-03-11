@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/assets/styles.css">
+        <script src="/assets/todo-list.js"></script>
+    </head>
+    <body>
+        <div id="todo-table">
+            <!-- <form action="/todo" onSubmit="formSubmit()" method="post"> -->
+                <input type="text" name="item" placeholder="Add new item...." required id="input-box">
+                <button type="submit" id="add-button" onclick="formSubmit()">Add item</button>
+            <!-- </form> -->
+            <ul>
+                <% for(var i=0; i<data.length;i++) { %>
+                <li> <%= data[i].item %>
+                    <% }%>
+                </li>    
+            </ul>
+        </div>
+    </body>
+</html>

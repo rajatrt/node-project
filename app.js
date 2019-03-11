@@ -21,5 +21,4 @@ app.set('view engine',"ejs");
  *   serving static files like CSS files    
  */
 app.use(express.static('./public'));
-
 app.listen(port,() => console.log("Your server is listening at port",port));
