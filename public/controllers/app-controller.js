@@ -14,8 +14,14 @@ module.exports = function(app){
         data.push(req.body);
         res.json(data);
     })
-    app.delete('/todo',(req,res) => {
-
+    app.delete('/todo/:item',(req,res) => {
+        let item = req.params.item;
+        data = data.filter((op) => {
+            if(op.item == item){
+                return false;
+            }
+            return true;
+        })
+        res.json(data);
     })
-
 }

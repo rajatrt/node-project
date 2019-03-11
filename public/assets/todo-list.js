@@ -11,6 +11,13 @@ async function formSubmit() {
     }).then(() => {
         location.reload();
     })
-    const myJson = await response.json();
-    console.log("successfully submitted form",myJson);
+}
+async function deleteItem(event) {
+    let item = event.target.innerText;
+    const response = await fetch('/todo/' + item, {
+        method: 'delete'
+    })
+    .then(() => {
+        location.reload();
+    });
 }
